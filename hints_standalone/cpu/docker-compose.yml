@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  custom_whisper:
+    container_name: hints
+    image: ghcr.io/cociweb/amd64_cpu-hints_standalone:latest
+    ports:
+      - 10300:10300
+    volumes:
+      - hints_data:/data
+    restart: always
+    command: --model custom --language hu --device cpu --beam-size 1 --compute-type default --custom_model_name "My customized tiny Whisper model" --custom_model_url "https://huggingface.co/Hungarians/whisper-tiny-cv16-hu-v2/resolve/main/fp32/"
+    deploy:
+      resources:
+        limits:
+          cpus: "4.0"
+          memory: 8096M
+
+volumes:
+  hints_data:

@@ -1,0 +1,44 @@
+FROM python:3.11-slim-bookworm
+ARG HINTS_VERSION=1.0.0
+
+WORKDIR /usr/src
+
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
+        build-essential \
+        netcat-traditional \
+        swig4
+RUN pip3 install --no-cache-dir -U  --upgrade pip
+RUN pip3 install --no-cache-dir -U \
+        setuptools \
+        wheel
+
+WORKDIR /
+ADD https://github.com/cociweb/hints/archive/refs/tags/v${HINTS_VERSION}.tar.gz hints-${HINTS_VERSION}.tar.gz
+RUN ls -lah
+RUN pip3 install --no-cache-dir hints-${HINTS_VERSION}.tar.gz
+
+
+RUN  apt-get purge -y --auto-remove \
+        build-essential \
+        python3-dev
+RUN rm -rf /var/lib/apt/lists/*
+
+WORKDIR /
+COPY hints_standalone/common/run.sh ./
+
+
+LABEL org.opencontainers.image.source https://github.com/cociweb/hints-addon
+
+
+EXPOSE 10300
+
+ENTRYPOINT ["bash", "/run.sh"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=30s \
+        CMD echo '{ "type": "describe" }' \
+        | nc -w 1 localhost 10300 \
+        | grep -q "hints" \
+        || exit 1
