@@ -1,4 +1,4 @@
-name: Build and Publish Add-on
+name: Build and Publish Edge Add-on
 
 on:
   push:
