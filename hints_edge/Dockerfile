@@ -28,7 +28,7 @@ RUN pip3 install --no-cache-dir -U \
         wheel
 
 WORKDIR /
-ADD https://github.com/cociweb/whisper/archive/refs/tags/v${HINTS_VERSION}.tar.gz hints-${HINTS_VERSION}.tar.gz
+ADD https://github.com/cociweb/hints/archive/refs/tags/v${HINTS_VERSION}.tar.gz hints-${HINTS_VERSION}.tar.gz
 RUN ls -lah
 RUN pip3 install --no-cache-dir hints-${HINTS_VERSION}.tar.gz
 
