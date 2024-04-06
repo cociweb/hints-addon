@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         build-essential \
         netcat-traditional \
-        swig4 \
+        swig \
         python3 \
         python3-dev \
         python3-pip \
