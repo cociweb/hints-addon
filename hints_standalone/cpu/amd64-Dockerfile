@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
         build-essential \
         netcat-traditional \
+        git \
         swig
 RUN pip3 install --no-cache-dir -U  --upgrade pip
 RUN pip3 install --no-cache-dir -U \

@@ -12,6 +12,7 @@ RUN apt-get install -y --no-install-recommends \
         build-essential \
         netcat-traditional \
         swig \
+        git \
         python3 \
         python3-dev \
         python3-pip \
