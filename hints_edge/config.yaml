@@ -1,8 +1,8 @@
 ---
-version: 0.1.0
-slug: hints
-name: Hints
-description: Home-Assistant INtent Text Spell-checker
+version: 0.1.0-b
+slug: hints_edge
+name: Hints Edge
+description: Developer version of Home-Assistant INtent Text Spell-checker
 url: https://github.com/cociweb/hints-addon/
 arch:
   - amd64
