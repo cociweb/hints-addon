@@ -19,7 +19,7 @@ options:
   force-download-model: false
   custom_model_url: null
   spellcheck:
-   spellcheck: false
+   enable: false
    alphabet: "abcdefghijklmnopqrstuvwxyz"
    data-dir: "/data"
    tag: "latest"
@@ -70,7 +70,7 @@ schema:
   force-download-model: bool
   custom_model_url: str?
   spellcheck:
-    spellcheck: bool
+    enable: bool
     alphabet: str?
     data-dir: str?
     tag: str?
