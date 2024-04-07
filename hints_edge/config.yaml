@@ -1,5 +1,5 @@
 ---
-version: 0.1.0-e
+version: 0.1.0-f
 slug: hints_edge
 name: Hints Edge
 description: Developer version of Home-Assistant INtent Text Spell-checker
@@ -19,7 +19,7 @@ options:
   force-download-model: false
   custom-model-url: null
   Spellcheck:
-    spellcheck: false
+    spellcheck-enable: false
     alphabet: "abcdefghijklmnopqrstuvwxyz"
     data-dir: "/data"
     tag: "latest"
@@ -70,7 +70,7 @@ schema:
   force-download-model: bool
   custom-model-url: str?
   Spellcheck:
-    spellcheck: bool
+    spellcheck-enable: bool
     alphabet: str?
     data-dir: str?
     tag: str?
