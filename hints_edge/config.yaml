@@ -1,5 +1,5 @@
 ---
-version: 0.1.0-d
+version: 0.1.0-e
 slug: hints_edge
 name: Hints Edge
 description: Developer version of Home-Assistant INtent Text Spell-checker
@@ -30,6 +30,11 @@ options:
     force-generate-spellcheck: false
   Whisper:
     beam_size: 5
+    best_of: 5
+    patience: 1
+    length_penalty: 1
+    repetition_penalty: 1
+    no_repeat_ngram_size: 0
   debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
@@ -50,6 +55,11 @@ schema:
     force-generate-spellcheck: bool
   Whisper:
     beam_size: int
+    best_of: int
+    patience: float
+    length_penalty: float
+    repetition_penalty: float
+    no_repeat_ngram_size: int
   debug: bool
 ports:
   "10300/tcp": null
