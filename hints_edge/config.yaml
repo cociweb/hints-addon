@@ -51,6 +51,9 @@ options:
     prepend_punctuations: "\"'“¿([{-"
     append_punctuations: "\"'.。,，!！?？:：”)]}、"
     vad_filter: False
+    vad_parameters: '{"threshold": 0.5, "min_speech_duration_ms": 250, "max_speech_duration_s": inf, "min_silence_duration_ms": 2000, "window_size_samples": 1024, "speech_pad_ms": 400}'
+    max_new_tokens: 100
+    chunk_length: 10
   debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
@@ -92,6 +95,9 @@ schema:
     prepend_punctuations: str
     append_punctuations: str
     vad_filter: bool
+    vad_parameters: str
+    max_new_tokens: int
+    chunk_length: int
   debug: bool
 ports:
   "10300/tcp": null
