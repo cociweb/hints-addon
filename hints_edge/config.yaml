@@ -35,6 +35,12 @@ options:
     length_penalty: 1
     repetition_penalty: 1
     no_repeat_ngram_size: 0
+    temperature: 0.0 0.2 0.4 0.6 0.8 1.0
+    compression_ratio_threshold: 2.4
+    log_prob_threshold: -1.0
+    no_speech_threshold: 0.6
+    condition_on_previous_text: True
+    prompt_reset_on_temperature: 0.5
   debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
@@ -60,6 +66,12 @@ schema:
     length_penalty: float
     repetition_penalty: float
     no_repeat_ngram_size: int
+    temperature: float
+    compression_ratio_threshold: float
+    log_prob_threshold: float
+    no_speech_threshold: float
+    condition_on_previous_text: bool
+    prompt_reset_on_temperature: float
   debug: bool
 ports:
   "10300/tcp": null
