@@ -61,20 +61,6 @@ options:
    device: auto
    compute_type: auto
    cpu_threads: 0
-    
-    --beam_size 5 --best_of 5 --patience 1 --length_penalty 1 
-    --repetition_penalty 1 --no_repeat_ngram_size 0 --temperature 0.0 0.2 0.4 0.6 0.8 1.0 
-    --compression_ratio_threshold 2.4 --log_prob_threshold -1.0 --no_speech_threshold 0.6 
-    --condition_on_previous_text True --prompt_reset_on_temperature 0.5 --initial_prompt "Hello" 
-    --prefix "Hi" --suppress_blank True --suppress_tokens -1 --without_timestamps False 
-    --max_initial_timestamp 1.0 --word_timestamps False 
-    --prepend_punctuations "\"'“¿([{-" --append_punctuations "\"'.。,，!！?？:：”)]}、" 
-    --vad_filter False --vad_parameters '{"threshold": 0.6, "min_speech_duration_ms": 300, "max_speech_duration_s": 1000.0, "min_silence_duration_ms": 2500, "window_size_samples": 2048, "speech_pad_ms": 500}' 
-    --max_new_tokens 100 --chunk_length 10 --clip_timestamps "0" --hallucination_silence_threshold 0.5 
-    --language_detection_threshold 0.5 --language_detection_segments 1
-
-
-
   debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
