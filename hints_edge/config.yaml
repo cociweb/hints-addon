@@ -48,7 +48,7 @@ options:
     without_timestamps: False
     max_initial_timestamp: 1.0
     word_timestamps: False
-    prepend_punctuations: '"\'“¿([{-''
+    prepend_punctuations: '"\'“¿([{-\''
     append_punctuations: '"\'.。,，!！?？:：”)]}、'
   debug: false
 schema:
