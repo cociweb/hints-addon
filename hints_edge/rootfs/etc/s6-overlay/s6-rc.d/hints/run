@@ -1,0 +1,14 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start Whisper service
+# ==============================================================================
+exec python3 -m hints \
+    --proto 'tcp://0.0.0.0:10300' \
+    --model "$(bashio::config 'model')" \
+    --language "$(bashio::config 'language')" \
+    --data-dir "$(bashio::config 'data_dir')" \
+    --model-dir "$(bashio::config 'model_dir')" \
+    --debug "$(bashio::config 'debug')" \
+    --force-download-model "$(bashio::config 'force_download_model')" \
+    --custom-model-url "$(bashio::config 'custom_model_url')"
