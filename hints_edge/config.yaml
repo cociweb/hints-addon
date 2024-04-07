@@ -48,6 +48,8 @@ options:
     without_timestamps: False
     max_initial_timestamp: 1.0
     word_timestamps: False
+    prepend_punctuations: '"\'“¿([{-''
+    append_punctuations: '"\'.。,，!！?？:：”)]}、'
   debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
@@ -86,6 +88,8 @@ schema:
     without_timestamps: bool
     max_initial_timestamp: float
     word_timestamps: bool
+    prepend_punctuations: str
+    append_punctuations: str
   debug: bool
 ports:
   "10300/tcp": null
