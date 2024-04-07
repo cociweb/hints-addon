@@ -8,7 +8,7 @@ declare config
 # Wait for Whisper to become available
 bash -c \
     "until
-        echo '{ \"type\": \"describe\" }' 
+        echo '{ \"type\": \"describe\" }'
             > /dev/tcp/localhost/10300; do sleep 0.5;
     done" > /dev/null 2>&1 || true;
 

@@ -1,0 +1,54 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start Whisper service
+# ==============================================================================
+exec python3 -m hints \
+    --proto 'tcp://0.0.0.0:10300' \
+    --model "$(bashio::config 'model')" \
+    --language "$(bashio::config 'language')" \
+    --model-dir "$(bashio::config 'model_dir')" \
+    --debug "$(bashio::config 'debug')" \
+    --force-download-model "$(bashio::config 'force_download_model')" \
+    --custom-model-url "$(bashio::config 'custom_model_url')" \
+    --spellcheck "$(bashio::config 'Spellcheck.spellcheck_enable')" \
+    --alphabet "$(bashio::config 'Spellcheck.alphabet')" \
+    --data-dir "$(bashio::config 'Spellcheck.data_dir')" \
+    --tag "$(bashio::config 'Spellcheck.tag')" \
+    --ha-api-url "$(bashio::config 'Spellcheck.ha_api_url')" \
+    --token "$(bashio::config 'Spellcheck.token')" \
+    --hassil-iterations "$(bashio::config 'Spellcheck.hassil_iterations')" \
+    --force-generate-intent "$(bashio::config 'Spellcheck.force_generate_intent')" \
+    --force-generate-spellcheck "$(bashio::config 'Spellcheck.force_generate_spellcheck')" \
+    --beam_size "$(bashio::config 'Whisper.beam_size')" \
+    --best_of "$(bashio::config 'Whisper.best_of')" \
+    --patience "$(bashio::config 'Whisper.patience')" \
+    --length_penalty "$(bashio::config 'Whisper.length_penalty')" \
+    --repetition_penalty "$(bashio::config 'Whisper.repetition_penalty')" \
+    --no_repeat_ngram_size "$(bashio::config 'Whisper.no_repeat_ngram_size')" \
+    --temperature "$(bashio::config 'Whisper.temperature')" \
+    --compression_ratio_threshold "$(bashio::config 'Whisper.compression_ratio_threshold')" \
+    --log_prob_threshold "$(bashio::config 'Whisper.log_prob_threshold')" \
+    --no_speech_threshold "$(bashio::config 'Whisper.no_speech_threshold')" \
+    --condition_on_previous_text "$(bashio::config 'Whisper.condition_on_previous_text')" \
+    --prompt_reset_on_temperature "$(bashio::config 'Whisper.prompt_reset_on_temperature')" \
+    --initial_prompt "$(bashio::config 'Whisper.initial_prompt')" \
+    --prefix "$(bashio::config 'Whisper.prefix')" \
+    --suppress_blank "$(bashio::config 'Whisper.suppress_blank')" \
+    --suppress_tokens "$(bashio::config 'Whisper.suppress_tokens')" \
+    --without_timestamps "$(bashio::config 'Whisper.without_timestamps')" \
+    --max_initial_timestamp "$(bashio::config 'Whisper.max_initial_timestamp')" \
+    --word_timestamps "$(bashio::config 'Whisper.word_timestamps')" \
+    --prepend_punctuations "$(bashio::config 'Whisper.prepend_punctuations')" \
+    --append_punctuations "$(bashio::config 'Whisper.append_punctuations')" \
+    --vad_filter "$(bashio::config 'Whisper.vad_filter')" \
+    --vad_parameters "$(bashio::config 'Whisper.vad_parameters')" \
+    --max_new_tokens "$(bashio::config 'Whisper.max_new_tokens')" \
+    --chunk_length "$(bashio::config 'Whisper.chunk_length')" \
+    --clip_timestamps "$(bashio::config 'Whisper.clip_timestamps')" \
+    --hallucination_silence_threshold "$(bashio::config 'Whisper.hallucination_silence_threshold')" \
+    --language_detection_threshold "$(bashio::config 'Whisper.language_detection_threshold')" \
+    --language_detection_segments "$(bashio::config 'Whisper.language_detection_segments')" \
+    --device "$(bashio::config 'Whisper.device')" \
+    --compute_type "$(bashio::config 'Whisper.compute_type')" \
+    --cpu_threads "$(bashio::config 'Whisper.cpu_threads')"
