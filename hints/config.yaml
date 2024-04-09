@@ -1,5 +1,5 @@
 ---
-version: 0.1.0
+version: 0.1.0-a
 slug: hints
 name: Hints
 description: Home-Assistant INtent Text Spell-checker
