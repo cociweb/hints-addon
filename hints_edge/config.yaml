@@ -76,43 +76,43 @@ schema:
     tag: str?
     ha-api-url: str?
     token: str?
-    hassil-iterations: int
-    force-generate-intent: bool
-    force-generate-spellcheck: bool
+    hassil-iterations: int?
+    force-generate-intent: bool?
+    force-generate-spellcheck: bool?
   Whisper:
-    beam_size: int
-    best_of: int
-    patience: float
-    length_penalty: float
-    repetition_penalty: float
-    no_repeat_ngram_size: int
-    temperature: float
-    compression_ratio_threshold: float
-    log_prob_threshold: float
-    no_speech_threshold: float
-    condition_on_previous_text: bool
-    prompt_reset_on_temperature: float
-    initial_prompt: str
-    prefix: str
-    suppress_blank: bool
-    suppress_tokens: int
-    without_timestamps: bool
-    max_initial_timestamp: float
-    word_timestamps: bool
-    prepend_punctuations: str
-    append_punctuations: str
-    vad_filter: bool
-    vad_parameters: str
-    max_new_tokens: int
-    chunk_length: int
-    clip_timestamps: str
-    hallucination_silence_threshold: float
-    language_detection_threshold: float
-    language_detection_segments: int
-    device: str
-    compute_type: str
-    cpu_threads: int
-  debug: bool
+    beam_size: int?
+    best_of: int?
+    patience: float?
+    length_penalty: float?
+    repetition_penalty: float?
+    no_repeat_ngram_size: int?
+    temperature: float?
+    compression_ratio_threshold: float?
+    log_prob_threshold: float?
+    no_speech_threshold: float?
+    condition_on_previous_text: bool?
+    prompt_reset_on_temperature: float?
+    initial_prompt: str?
+    prefix: str?
+    suppress_blank: bool?
+    suppress_tokens: int?
+    without_timestamps: bool?
+    max_initial_timestamp: float?
+    word_timestamps: bool?
+    prepend_punctuations: str?
+    append_punctuations: str?
+    vad_filter: bool?
+    vad_parameters: str?
+    max_new_tokens: int?
+    chunk_length: int?
+    clip_timestamps: str?
+    hallucination_silence_threshold: float?
+    language_detection_threshold: float?
+    language_detection_segments: int?
+    device: str?
+    compute_type: str?
+    cpu_threads: int?
+  debug: bool?
 ports:
   "10300/tcp": null
 homeassistant: 2024.4.0
