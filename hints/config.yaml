@@ -1,8 +1,8 @@
 ---
-version: 0.1.0
+version: 0.1.0-a
 slug: hints
 name: Hints
-description: Home-assistant INtent Text Spell-checker
+description: Home-Assistant INtent Text Spell-checker
 url: https://github.com/cociweb/hints-addon/
 arch:
   - amd64
@@ -15,16 +15,104 @@ backup_exclude:
 options:
   model: tiny-int8
   language: en
-  beam_size: 1
-  compute_type: default
-  custom_model_url: null
+  model-dir: "/model"
+  force-download-model: false
+  custom-model-url: null
+  Spellcheck:
+    spellcheck-enable: false
+    alphabet: "abcdefghijklmnopqrstuvwxyz"
+    data-dir: "/data"
+    tag: "latest"
+    ha-api-url: "http://homeassistant.local:8123"
+    token: "1234567890"
+    hassil-iterations: 10
+    force-generate-intent: false
+    force-generate-spellcheck: false
+  Whisper:
+    beam_size: 5
+    best_of: 5
+    patience: 1
+    length_penalty: 1
+    repetition_penalty: 1
+    no_repeat_ngram_size: 0
+    temperature: 0.0 0.2 0.4 0.6 0.8 1.0
+    compression_ratio_threshold: 2.4
+    log_prob_threshold: -1.0
+    no_speech_threshold: 0.6
+    condition_on_previous_text: True
+    prompt_reset_on_temperature: 0.5
+    initial_prompt: "Hello"
+    prefix: "Hi"
+    suppress_blank: True
+    suppress_tokens: -1
+    without_timestamps: False
+    max_initial_timestamp: 1.0
+    word_timestamps: False
+    prepend_punctuations: "\"'“¿([{-"
+    append_punctuations: "\"'.。,，!！?？:：”)]}、"
+    vad_filter: False
+    vad_parameters: '{"threshold": 0.5, "min_speech_duration_ms": 250, "max_speech_duration_s": inf, "min_silence_duration_ms": 2000, "window_size_samples": 1024, "speech_pad_ms": 400}'
+    max_new_tokens: 100
+    chunk_length: 10
+    clip_timestamps: "0"
+    hallucination_silence_threshold: 0.5
+    language_detection_threshold: 0.5
+    language_detection_segments: 1
+    device: auto
+    compute_type: auto
+    cpu_threads: 0
+  debug: false
 schema:
   model: list(tiny-int8|tiny|base|base-int8|small-int8|small|medium-int8|custom)
-  compute_type: list(default|auto|int8|int8_float32|int8_float16|int8_bfloat16|int16|float16|float32|bfloat16)
   language: |
     list(auto|af|am|ar|as|az|ba|be|bg|bn|bo|br|bs|ca|cs|cy|da|de|el|en|es|et|eu|fa|fi|fo|fr|gl|gu|ha|haw|he|hi|hr|ht|hu|hy|id|is|it|ja|jw|ka|kk|km|kn|ko|la|lb|ln|lo|lt|lv|mg|mi|mk|ml|mn|mr|ms|mt|my|ne|nl|nn|no|oc|pa|pl|ps|pt|ro|ru|sa|sd|si|sk|sl|sn|so|sq|sr|su|sv|sw|ta|te|tg|th|tk|tl|tr|tt|uk|ur|uz|vi|yi|yo|zh)
-  beam_size: int
-  custom_model_url: str?
+  model-dir: str?
+  force-download-model: bool
+  custom-model-url: str?
+  Spellcheck:
+    spellcheck-enable: bool
+    alphabet: str?
+    data-dir: str?
+    tag: str?
+    ha-api-url: str?
+    token: str?
+    hassil-iterations: int
+    force-generate-intent: bool
+    force-generate-spellcheck: bool
+  Whisper:
+    beam_size: int
+    best_of: int
+    patience: float
+    length_penalty: float
+    repetition_penalty: float
+    no_repeat_ngram_size: int
+    temperature: float
+    compression_ratio_threshold: float
+    log_prob_threshold: float
+    no_speech_threshold: float
+    condition_on_previous_text: bool
+    prompt_reset_on_temperature: float
+    initial_prompt: str
+    prefix: str
+    suppress_blank: bool
+    suppress_tokens: int
+    without_timestamps: bool
+    max_initial_timestamp: float
+    word_timestamps: bool
+    prepend_punctuations: str
+    append_punctuations: str
+    vad_filter: bool
+    vad_parameters: str
+    max_new_tokens: int
+    chunk_length: int
+    clip_timestamps: str
+    hallucination_silence_threshold: float
+    language_detection_threshold: float
+    language_detection_segments: int
+    device: str
+    compute_type: str
+    cpu_threads: int
+  debug: bool
 ports:
   "10300/tcp": null
 homeassistant: 2024.4.0
