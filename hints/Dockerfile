@@ -46,6 +46,9 @@ RUN rm -rf /var/lib/apt/lists/*
 WORKDIR /
 COPY rootfs /
 
+RUN mkdir -p /data
+RUN mkdir -p /model
+
 LABEL org.opencontainers.image.source https://github.com/cociweb/hints-addon
 
 
