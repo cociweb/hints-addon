@@ -9,7 +9,10 @@ RUN apt-get install -y --no-install-recommends \
         build-essential \
         netcat-traditional \
         git \
-        swig
+        swig \
+        locales \
+        locales-all
+RUN locale-gen
 RUN pip3 install --no-cache-dir -U  --upgrade pip
 RUN pip3 install --no-cache-dir -U \
         setuptools \
