@@ -56,6 +56,7 @@ options:
     chunk_length: 10
     clip_timestamps: "0"
     hallucination_silence_threshold: 0.5
+    hotwords: null
     language_detection_threshold: 0.5
     language_detection_segments: 1
     device: auto
@@ -107,6 +108,7 @@ schema:
     chunk_length: int
     clip_timestamps: str
     hallucination_silence_threshold: float
+    hotwords: str
     language_detection_threshold: float
     language_detection_segments: int
     device: str
